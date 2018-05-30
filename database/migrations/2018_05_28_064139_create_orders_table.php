@@ -20,9 +20,9 @@ class CreateOrdersTable extends Migration
             $table->float('amount');
             $table->string('phone');
             $table->string('name');
-            $table->float('zipcode');
+            $table->string('zipcode');
             $table->enum('status', ['pending', 'completed', 'shipping', 'shipped'
-                    ,'cancelled', 'refunded', 'awaiting payment']);
+                    ,'cancelled', 'refunded', 'awaiting payment'])->default('pending)');
             $table->timestamps();
         });
     }
