@@ -12,6 +12,22 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        
+        DB::table('roles')->truncate();
+        
+        DB::table('roles')->insert([
+            'name' => 'admin',
+            'created_at' => date('y-m-d H:i:s'),
+            'updated_at' => date('y-m-d H:i:s'),
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'client',
+            'created_at' => date('y-m-d H:i:s'),
+            'updated_at' => date('y-m-d H:i:s'),
+        ]);
+        
+        Schema::enableForeignKeyConstraints();
     }
 }

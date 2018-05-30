@@ -17,7 +17,7 @@ class EditUsersTable extends Migration
             $table->unsignedInteger('role_id');
             $table->string('phone')->nullable();
             $table->tinyInteger('sex')->default(1)->nullable();
-            $table->time('birthday')->nullable();
+            $table->date('birthday')->nullable();
             $table->text('address')->nullable();
             $table->tinyInteger('status')->default(1);
         });

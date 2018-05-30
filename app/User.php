@@ -36,19 +36,19 @@ class User extends Authenticatable
         return $this->belongsTo('Role');
     }
 
-    public function comments()) {
+    public function comments() {
         return $this->hasMany('Comment');
     }
 
-    public function rates()) {
+    public function rates() {
         return $this->hasMany('Rate');
     }
 
-    public function orders()) {
+    public function orders() {
         return $this->hasMany('Order');
     }
 
-    public function posts()) {
+    public function posts() {
         return $this->hasMany('Post');
     }
 }

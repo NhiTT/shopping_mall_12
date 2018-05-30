@@ -12,6 +12,28 @@ class PaymentMethodTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        
+        DB::table('payment_methods')->truncate();
+        
+        DB::table('paymentmethods')->insert([
+            'name' => 'Thanh toan qua the ATM',
+            'created_at' => date('y-m-d H:i:s'),
+            'updated_at' => date('y-m-d H:i:s'),
+        ]);
+
+        DB::table('payment_methods')->insert([
+            'name' => 'Thanh toan bang the tin dung',
+            'created_at' => date('y-m-d H:i:s'),
+            'updated_at' => date('y-m-d H:i:s'),
+        ]);
+
+        DB::table('payment_methods')->insert([
+            'name' => 'Thanh toan khi nhan hang',
+            'created_at' => date('y-m-d H:i:s'),
+            'updated_at' => date('y-m-d H:i:s'),
+        ]);
+
+        Schema::enableForeignKeyConstraints();
     }
 }
