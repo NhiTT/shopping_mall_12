@@ -25,7 +25,7 @@
                 <ul class="top-headercart">
                     <li class="dropdown">
                         @guest
-                        <li><a href="#">{{ __('Register') }}</a></li>
+                        <li><a href="/register">{{ __('Register') }}</a></li>
                         <li><a href="#">{{ __('Login') }}</a></li>
                         @else
                         <li class="dropdown">
@@ -65,7 +65,7 @@
                                     <span class="simpleCart_total"></span></div>
                                 <img src="{{ asset('images/cart-1.png') }}" alt="" />
                             </a>
-                            <p><a href="javascript:;" class="simpleCart_empty">{{ __('Empty Cart') }}</a></p>
+                            <!-- <p><a href="javascript:;" class="simpleCart_empty">{{ __('Empty Cart') }}</a></p> -->
                             <div class="clearfix"> </div>
                         </div>
                     </li>

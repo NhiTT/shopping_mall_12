@@ -20,8 +20,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/template/jquery-1.11.0.min.js') }}"></script>
     <script src="{{ asset('assets/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/Font-Awesome/web-fonts-with-css/css/fontawesome.min.css') }}">

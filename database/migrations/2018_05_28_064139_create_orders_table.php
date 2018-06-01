@@ -21,8 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('phone');
             $table->string('name');
             $table->string('zipcode');
-            $table->enum('status', ['pending', 'completed', 'shipping', 'shipped'
-                    ,'cancelled', 'refunded', 'awaiting payment'])->default('pending)');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
