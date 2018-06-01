@@ -16,5 +16,21 @@
     "Home":"Home",
     "Almsaeed Studio":"Almsaeed Studio",
     "All rights reserved.":"All rights reserved.",
-    "Copyright":"Copyright"
+    "Copyright":"Copyright",
+
+    "REGISTER":"REGISTER",
+    "Fisrt name":"Fisrt name",
+    "Last name":"Last name",
+    "Email":"Email",
+    "Phone":"Phone",
+    "Sex":"Sex",
+    "Address":"Address",
+    "Birthday":"Birthday",
+    "Password":"Password",
+    "Confirm Password":"Confirm Password",
+    "SEND":"SEND",
+
+    "Wellcome":"Wellcome",
+    "Please click on the following link to activate and login to your account.":"Please click on the following link to activate and login to your account.",
+    "Active and Login now":"Active and Login now"
 }

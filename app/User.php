@@ -9,6 +9,8 @@ use App\Models\Comment;
 use App\Models\Rate;
 use App\Models\Order;
 use App\Models\Post;
+use Cartalyst\Sentinel\Users\EloquentUser as CartalystUser;
+
 
 class User extends Authenticatable
 {
@@ -20,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'last_name', 'first_name', 'email', 'phone', 'sex', 'birthday', 'address', 'permissions', 'last_login', 'role_id',
     ];
 
     /**
