@@ -23,7 +23,6 @@ class OrdersTableSeeder extends Seeder
             'phone' => '0927632764',
             'name' => 'Mai Thi Nham',
             'zipcode' => '100000',
-            'status' => 'pending',
             'created_at' => date('y-m-d H:i:s'),
             'updated_at' => date('y-m-d H:i:s'),
         ]);
@@ -35,7 +34,6 @@ class OrdersTableSeeder extends Seeder
             'phone' => '0176372162',
             'name' => 'Hong Phuong',
             'zipcode' => '100000',
-            'status' => 'shipping',
             'created_at' => date('y-m-d H:i:s'),
             'updated_at' => date('y-m-d H:i:s'),
         ]);
@@ -47,7 +45,6 @@ class OrdersTableSeeder extends Seeder
             'phone' => '0973826322',
             'name' => 'Nguyen Trang',
             'zipcode' => '65000',
-            'status' => 'completed',
             'created_at' => date('y-m-d H:i:s'),
             'updated_at' => date('y-m-d H:i:s'),
         ]);

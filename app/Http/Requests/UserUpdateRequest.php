@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Frontend;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,13 +26,9 @@ class RegisterRequest extends FormRequest
         return [
             'first_name' => 'bail|required|max:255',
             'last_name' => 'bail|required|max:255',
-            'phone' => 'required|min:10',
-            'email' => 'required|string|email|max:255|unique:users',
-            'address' => 'max:255',
-            'birthday' => 'max:30',
-            'password' => 'required|min:6|max:20',
-            'confirm_password' => 'required|min:6|max:20|same:password',
-            
+            'phone' => 'required|min:10|numeric',
+            'confirm_password' => 'max:20|same:password',
+            'img_url' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

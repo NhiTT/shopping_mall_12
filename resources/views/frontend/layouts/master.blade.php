@@ -26,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="{{ asset('assets/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/Font-Awesome/web-fonts-with-css/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}">
-
+    <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.js') }}"></script>
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);

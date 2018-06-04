@@ -12,7 +12,13 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'payment_method_id', 'amount', 'phone', 'name', 'zipcode', 'status',
+        'user_id',
+        'payment_method_id',
+        'amount',
+        'phone',
+        'name',
+        'zipcode',
+        'status',
     ];
 
     public function paymentMethod() {

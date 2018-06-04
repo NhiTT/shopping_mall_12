@@ -8,6 +8,7 @@ use Sentinel;
 use Reminder;
 use Activation;
 use Mail;
+use App\Http\Controllers\User\Input;
 use App\Http\Requests\Frontend\RegisterRequest;
 
 class RegisterController extends Controller
@@ -33,10 +34,22 @@ class RegisterController extends Controller
         $user->sex = $request->input('sex');
         $user->address = $request->input('address');
         $user->birthday = $request->input('birthday');
+        $user->img_url = null;
+        
+        if ($request->hasFile('img_url')) { 
+            $image = $request->file('img_url');
+            $input['img_url'] = str_slug($request->email) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path(config('setting.imgURL'));
+            $image->move($destinationPath, $input['img_url']);
+
+            $user->img_url = config('setting.imgURL') . $input['img_url'];
+        }
+        $role = Sentinel::findRoleBySlug('client');
+        $role->users()->attach($user);
         $user->save();
         $activation = Activation::create($user);
         $this->sendEmailActivate($user, $activation->code);
-        
+
         return view('frontend.user.registerSuccess');
     }
     
@@ -51,9 +64,9 @@ class RegisterController extends Controller
             'user' => $user,
             'code' => $code,
         ], function($message) use ($user) {
-            $message->from(env('MAIL_USERNAME'), 'LUXURY FURNITURE');
+            $message->from(env('MAIL_USERNAME'), __('LUXURY FURNITURE'));
             $message->to($user->email);
-            $message->subject("Hello $user->first_name, Activate your account");
+            $message->subject(__('Hello') . $user->first_name . ' ' . $user->last_name . __(', Activate your account'));
         });
     }
 }

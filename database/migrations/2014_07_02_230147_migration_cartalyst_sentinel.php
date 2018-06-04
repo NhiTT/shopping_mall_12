@@ -102,6 +102,7 @@ class MigrationCartalystSentinel extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->unsignedInteger('role_id')->default(3);
+            $table->string('img_url')->nullable();
             $table->string('phone')->nullable();
             $table->tinyInteger('sex')->default(1)->nullable();
             $table->date('birthday')->nullable();
