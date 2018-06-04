@@ -19,8 +19,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('payment_method_id');
             $table->float('amount');
             $table->string('phone');
+            $table->text('address');
             $table->string('name');
-            $table->string('zipcode');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

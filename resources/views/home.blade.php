@@ -1,4 +1,8 @@
-@extends('frontend/layouts/master') @section('title', 'Home') @section('content') @include('frontend/shared.slidebar')
+@extends('frontend/layouts/master')
+@section('title', 'Home')
+@section('content')
+@include('frontend/shared.slidebar')
+
 <!--about-starts-->
 <div class="about">
     <div class="container">
@@ -153,4 +157,5 @@
     </div>
 </div>
 <!--product-end-->
+
 @endsection

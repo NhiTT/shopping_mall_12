@@ -26,12 +26,13 @@ class RegisterRequest extends FormRequest
         return [
             'first_name' => 'bail|required|max:255',
             'last_name' => 'bail|required|max:255',
-            'phone' => 'required|min:10|integer',
+            'phone' => 'required|min:10',
             'email' => 'required|string|email|max:255|unique:users',
             'address' => 'max:255',
             'birthday' => 'max:30',
             'password' => 'required|min:6|max:20',
             'confirm_password' => 'required|min:6|max:20|same:password',
+            
         ];
     }
 }

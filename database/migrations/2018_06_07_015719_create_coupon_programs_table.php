@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCouponProgramTable extends Migration
+/**
+ * Class CreateCouponProgramsTable.
+ */
+class CreateCouponProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +16,7 @@ class CreateCouponProgramTable extends Migration
      */
     public function up()
     {
-        Schema::create('coupon_program', function (Blueprint $table) {
+        Schema::create('coupon_programs', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('product_id');
             $table->unsignedInteger('coupon_id');
@@ -28,6 +31,6 @@ class CreateCouponProgramTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coupon_program');
+        Schema::drop('coupon_programs');
     }
 }

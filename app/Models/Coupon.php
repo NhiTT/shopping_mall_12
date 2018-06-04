@@ -12,7 +12,12 @@ class Coupon extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'type', 'decrease', 'start_at', 'end_at', 'status',
+        'code',
+        'type',
+        'decrease',
+        'start_at',
+        'end_at',
+        'status',
     ];
 
     public function couponPrograms() {

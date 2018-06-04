@@ -16,7 +16,7 @@ class PaymentMethodTableSeeder extends Seeder
         
         DB::table('payment_methods')->truncate();
         
-        DB::table('paymentmethods')->insert([
+        DB::table('payment_methods')->insert([
             'name' => 'Thanh toan qua the ATM',
             'created_at' => date('y-m-d H:i:s'),
             'updated_at' => date('y-m-d H:i:s'),
