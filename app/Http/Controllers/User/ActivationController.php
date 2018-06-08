@@ -13,12 +13,12 @@ class ActivationController extends Controller
 {
     /**
      * Active user account
-     * 
      * @param unknown $email
      * @param unknown $activationCode
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    public function activate($email, $activationCode) {
+    public function activate($email, $activationCode)
+    {
         $user = User::whereEmail($email)->first();
         $sentinelUser = Sentinel::findById($user->id);
 

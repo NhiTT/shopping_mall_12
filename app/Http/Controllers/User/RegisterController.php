@@ -14,29 +14,29 @@ use App\Http\Requests\Frontend\RegisterRequest;
 class RegisterController extends Controller
 {
     /**
-     * Get register view 
-     * 
+     * Get register view
      * @return \Illuminate\View\View
      */
-    public function ShowRegistrationForm() {
+    public function ShowRegistrationForm()
+    {
         return view('frontend.user.register');
     }
 
     /**
      * Validation user input and send active mail to user mail
-     * 
      * @param RegisterRequest $request
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function postRegister(RegisterRequest $request) {
+    public function postRegister(RegisterRequest $request)
+    {
         $user = Sentinel::register($request->all());
         $user->phone = $request->input('phone');
         $user->sex = $request->input('sex');
         $user->address = $request->input('address');
         $user->birthday = $request->input('birthday');
         $user->img_url = null;
-        
-        if ($request->hasFile('img_url')) { 
+
+        if ($request->hasFile('img_url')) {
             $image = $request->file('img_url');
             $input['img_url'] = str_slug($request->email) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path(config('setting.imgURL'));
@@ -52,14 +52,14 @@ class RegisterController extends Controller
 
         return view('frontend.user.registerSuccess');
     }
-    
+
     /**
      * Send active user account contain a link active like /{email}/{activeCode}
-     * 
      * @param unknown $user
      * @param unknown $code
      */
-    private function sendEmailActivate($user, $code) {
+    private function sendEmailActivate($user, $code)
+    {
         Mail::send('frontend.user.activate', [
             'user' => $user,
             'code' => $code,
