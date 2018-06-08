@@ -15,7 +15,8 @@ class PaymentMethod extends Model
         'name', 'status',
     ];
 
-    public function orders() {
+    public function orders()
+    {
         return $this->belongsTo('Order');
     }
 }

@@ -26,5 +26,4 @@ class AdminMiddleware
 
         return redirect()->route('login')->withErrors(__('You must enter a login'));
     }
-    
 }

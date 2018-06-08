@@ -13,14 +13,16 @@ class Rate extends Model
      * @var array
      */
     protected $fillable = [
-        'rate_point', 'user_id', 'product_id',
+        'rate_point', 'user_id', 'product_id', 'status',
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('User');
     }
 
-    public function product() {
+    public function product()
+    {
         return $this->belongsTo('Product');
     }
 }

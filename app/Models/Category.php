@@ -12,18 +12,21 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'parent_id',
+        'name', 'slug', 'parent_id', 'status'
     ];
 
-    public function products() {
+    public function products()
+    {
         return $this->hasMany('Product');
     }
 
-    public function parent() {
+    public function parent()
+    {
         return $this->belongsTo(self::class, 'parent_id');
     }
 
-    public function children() {
+    public function children()
+    {
         return $this->hasMany(self::class, 'parent_id');
     }
 }

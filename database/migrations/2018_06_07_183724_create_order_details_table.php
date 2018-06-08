@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->float('price_sale');
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_attribute_id');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

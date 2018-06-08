@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductAttribute;
 
-class Image extends Model 
+class Image extends Model
 {
     /**
      * fill into table images
@@ -15,7 +15,8 @@ class Image extends Model
         'img_path', 'product_attributes_id', 'status',
     ];
 
-    public function productAttribute() {
+    public function productAttribute()
+    {
         return $this->belongsTo('ProductAttribute');
     }
 }

@@ -17,13 +17,16 @@ class OrderDetail extends Model
         'price_sale',
         'order_id',
         'product_attributes_id',
+        'status',
     ];
 
-    public function productAttributes() {
+    public function productAttributes()
+    {
         return $this->belongsTo('ProductAttribute');
     }
 
-    public function order() {
+    public function order()
+    {
         return $this->belongsTo('Order');
     }
 }

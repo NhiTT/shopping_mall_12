@@ -29,16 +29,16 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre id='dropdown-menu'> {{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }} <span class="caret"></span></a>
 
                                 <ul class="dropdown-menu">
-                                @if(Sentinel::check()) 
+                                @if(Sentinel::check())
                                     @if(Sentinel::inRole('admin'))
                                         <li><a href="{{ route('admin') }}">{{ __('Admin') }}</a></li>
                                         <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
                                     @else
-                                        @php 
-                                            $user = Sentinel::getUser(); 
+                                        @php
+                                            $user = Sentinel::getUser();
                                         @endphp
                                         <li><a href="{{ route('user.profile', $user->id) }}">{{ __('Account manager') }}</a></li>
-                                        <li><a href="#">{{ __('My Orders') }}</a></li>
+                                        <li><a href="{{ route('user.myOrders') }}">{{ __('My Orders') }}</a></li>
                                         <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
                                     @endif
                                 @endif
@@ -54,14 +54,12 @@
                         </ul>
                     </li>
                     <li>
-                        <div class="cart ">
-                            <!-- box_1 -->
-                            <a href="/checkout">
-                                <div class="total">
-                                    <span class="simpleCart_total"></span></div>
-                                <img src="{{ asset('images/cart-1.png') }}" alt="" />
-                            </a>
-                        </div>
+                        <a href="{{ url('/wishlist') }}">{{ __('Wishlist') }}({{ Cart::instance('wishlist')->count(false) }})</a>
+                    </li>
+                    <li class="cart">
+                        <a href="{{ route('myCart') }}">
+                            <i class="fa fa-cart-plus icon-cart"></i><span class="cart-count">{{ Cart::instance('default')->count(false) }}</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -137,7 +135,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="clearfix"> </div>
             </div>
             <div class="col-md-3 header-right">
                 <div class="search-bar">

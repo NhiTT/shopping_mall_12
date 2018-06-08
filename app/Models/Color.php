@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductAttribute;
 
-class Color extends Model 
+class Color extends Model
 {
     /**
      * fill into table colors
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'status'
     ];
 
-    public function productAttributes() {
+    public function productAttributes()
+    {
         return $this->hasMany('ProductAttribute');
     }
 }

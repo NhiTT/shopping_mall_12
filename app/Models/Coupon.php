@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\CouponProgram;
 
-class Coupon extends Model 
+class Coupon extends Model
 {
     /**
      * fill into table coupon
@@ -20,7 +20,8 @@ class Coupon extends Model
         'status',
     ];
 
-    public function couponPrograms() {
+    public function couponPrograms()
+    {
         return $this->hasMany('CouponProgram');
     }
 }
