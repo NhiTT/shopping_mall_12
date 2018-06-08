@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Post extends Model
 {
     use Sluggable;
-    
+
     /**
      * fill into table posts
      * @var array

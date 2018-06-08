@@ -1,0 +1,20 @@
+pdepend:
+  comment: true
+  exit_code: 32512
+  ignore: true
+phpcpd:
+  comment: true
+  exit_code: 32512
+  ignore: true
+phpcs:
+  comment: true
+  exit_code: 512
+  ignore: false
+phpmd:
+  comment: true
+  exit_code: 32512
+  ignore: true
+phpmetrics:
+  comment: true
+  exit_code: 32512
+  ignore: true

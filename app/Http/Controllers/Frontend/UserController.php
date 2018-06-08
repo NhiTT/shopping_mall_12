@@ -15,7 +15,8 @@ class UserController extends Controller
      * @param unknown $id
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function show($id) {
+    public function show($id)
+    {
         $userAd = Sentinel::getUser();
         $user = Sentinel::findById($id);
 
@@ -27,7 +28,8 @@ class UserController extends Controller
      * @param unknown $id
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $userAd = Sentinel::getUser();
         $user = Sentinel::findById($id);
 
@@ -39,7 +41,8 @@ class UserController extends Controller
      * @param UserRequest $request
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function postEditProfile(UserUpdateRequest $request, $id) {
+    public function postEditProfile(UserUpdateRequest $request, $id)
+    {
         $userAd = Sentinel::getUser();
         $user = Sentinel::findById($id);
         $first_name = $request->input('first_name');

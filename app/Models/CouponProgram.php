@@ -13,14 +13,16 @@ class CouponProgram extends Model
      * @var array
      */
     protected $fillable = [
-        'product_id', 'coupon_id',
+        'product_id', 'coupon_id', 'status'
     ];
 
-    public function product() {
+    public function product()
+    {
         return $this->belongsTo('Product');
     }
 
-    public function coupon() {
+    public function coupon()
+    {
         return $this->belongsTo('Coupon');
     }
 }

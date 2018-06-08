@@ -42,7 +42,7 @@ class CouponProgramRepositoryEloquent extends BaseRepository implements CouponPr
     {
         $limit = 100;
         $query = $this->model;
-        $query = $query->join('coupon', 'coupon.id', '=', 'coupon_programs.coupon_id')
+        $query = $query->join('coupons', 'coupon.id', '=', 'coupon_programs.coupon_id')
         ->join('products', 'products.id', '=', 'coupon_programs.product_id')
         ->orderBy('products.id', 'desc');
 
@@ -53,7 +53,7 @@ class CouponProgramRepositoryEloquent extends BaseRepository implements CouponPr
     {
         $limit = 100;
         $query = $this->model;
-        $query = $query->join('coupon', 'coupon.id', '=', 'coupon_programs.coupon_id')
+        $query = $query->join('coupons', 'coupon.id', '=', 'coupon_programs.coupon_id')
         ->join('products', 'products.id', '=', 'coupon_programs.product_id')
         ->where('coupon.code', '=', $code)
         ->where('coupon_programs.product_id', '=', $p);

@@ -17,15 +17,18 @@ class ProductAttribute extends Model
         'color_id', 'product_id',
     ];
 
-    public function images() {
+    public function images()
+    {
         return $this->hasMany('Image');
     }
 
-    public function color() {
+    public function color()
+    {
         return $this->belongsTo('Color');
     }
 
-    public function Product() {
+    public function Product()
+    {
         return $this->belongsTo('Product');
     }
 }

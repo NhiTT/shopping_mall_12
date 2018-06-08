@@ -26,19 +26,23 @@ class Product extends Model
         'status',
     ];
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo('Category');
     }
 
-    public function rates() {
+    public function rates()
+    {
         return $this->hasMany('Rate');
     }
 
-    public function productAttributes() {
+    public function productAttributes()
+    {
         return $this->hasMany('ProductAttribute');
     }
 
-    public function couponPrograms() {
+    public function couponPrograms()
+    {
         return $this->hasMany('CouponProgram');
     }
 }

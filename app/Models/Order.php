@@ -21,7 +21,8 @@ class Order extends Model
         'status',
     ];
 
-    public function paymentMethod() {
+    public function paymentMethod()
+    {
         return $this->hasOne('PaymentMethod');
     }
 }

@@ -21,5 +21,3 @@
 </div>
 <div class="clearfix"> </div>
 <!--End Sidebar Product -->
-
-    

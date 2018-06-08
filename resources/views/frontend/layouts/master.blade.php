@@ -1,4 +1,4 @@
-<!--A Design by W3layouts 
+<!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -14,18 +14,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
     <!--Custom-Theme-files-->
-    <!--theme-style-->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ asset('css/frontend/custom.css') }}" rel="stylesheet" type="text/css" media="all" />
-    <!--//theme-style-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/template/jquery-1.11.0.min.js') }}"></script>
     <script src="{{ asset('assets/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('assets/Font-Awesome/web-fonts-with-css/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}">
+
+    <!-- owl carousel -->
+
+    <link rel="stylesheet" href="{{ asset('assets/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+
+    <script src="{{ asset('assets/owl.carousel/dist/owl.carousel.js') }}"></script>
+    <script src="{{ asset('assets/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <!-- end owl carousel -->
+
     <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.js') }}"></script>
     <script type="application/x-javascript">
         addEventListener("load", function() {
@@ -41,6 +47,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </script>
     <link href="{{ asset('css/template/memenu.css') }}" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="{{ asset('js/template/memenu.js') }}"></script>
+    <!--theme-style-->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ asset('css/frontend/custom.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
     <script>
         $(document).ready(function() {
             $(".memenu").memenu();
@@ -71,6 +81,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         });
     </script>
+    <!-- Custom -->
+    <script src="{{ asset('js/product.js') }}"></script>
 </head>
 
 <body>
@@ -152,7 +164,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="col-md-3 infor-left">
                     <h3>Store Information</h3>
                     <h4>The company name,
-				        <span>Lorem ipsum dolor,</span>
+                        <span>Lorem ipsum dolor,</span>
                         Glasglow Dr 40 Fe 72.</h4>
                     <h5>+955 123 4567</h5>
                     <p><a href="mailto:example@email.com">contact@example.com</a></p>
@@ -180,5 +192,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <!--footer-end-->
+
+    @section('extra-js')
+    <script>
+        (function(){
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.quantity').on('change', function() {
+                var id = $(this).attr('data-id')
+                $.ajax({
+                  type: "PATCH",
+                  url: '{{ url("/cart") }}' + '/' + id,
+                  data: {
+                    'quantity': this.value,
+                  },
+                  success: function(data) {
+                    window.location.href = '{{ url('/cart') }}';
+                  }
+                });
+
+            });
+
+        })();
+
+    </script>
+@endsection
 </body>
 </html>

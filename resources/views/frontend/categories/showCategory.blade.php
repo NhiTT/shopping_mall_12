@@ -5,7 +5,7 @@
 @include('frontend/shared/breadcrumbs')
 
 <!--prdt-starts-->
-<div class="prdt show-category"> 
+<div class="prdt show-category">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -35,13 +35,13 @@
                     </div>
                 </div>
                 <div class="clearfix1"> </div>
-                	<div class="row">
-                		<div class="col-md-12">
-		                	<div class="pagination">
-								{{ $products->links() }}
-							</div>
-						</div>
-					</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pagination">
+                                {{ $products->links() }}
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="product-one">
                         @if ($products->count() > 0)
@@ -92,8 +92,8 @@
                         </div>
                     </div>
                     <div class="pagination" style="float: right; margin-top: 0">
-						{{ $products->links() }}
-					</div>
+                        {{ $products->links() }}
+                    </div>
                 </div>
             </div>
             <div class="clearfix"></div>
