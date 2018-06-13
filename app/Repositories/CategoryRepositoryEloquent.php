@@ -52,7 +52,17 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         $query = $this->model;
 
         return $this->model->where('parent_id', '=', null)
-                           ->take(100)
-                           ->get();
+            ->where('status', 1)
+           ->take(100)
+           ->get();
+    }
+
+    public function showCategories()
+    {
+        $query = $this->model;
+
+        return $this->model->where('parent_id', '=', null)
+           ->take(100)
+           ->get();
     }
 }

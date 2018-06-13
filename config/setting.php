@@ -12,7 +12,7 @@ return [
         | the usual Laravel view path has already been registered for you.
         |
         */
-    'imgURL' => '/images/avatar',
+    'imgURL' => '/images/avatar/',
 
     /*
         |--------------------------------------------------------------------------

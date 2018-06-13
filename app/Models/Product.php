@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 use App\Models\Category;
 use App\Models\Rate;
 use App\Models\ProductAttribute;
@@ -14,6 +15,8 @@ class Product extends Model
      * fill into table products
      * @var array
      */
+    use Rateable;
+
     protected $fillable = [
         'name',
         'slug',

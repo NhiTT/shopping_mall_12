@@ -78,4 +78,23 @@ class ProductAttributeRepositoryEloquent extends BaseRepository implements Produ
 
         return $query->paginate($param);
     }
+
+    public function search($param, $s)
+    {
+        $query = $this->model;
+        $query = $query->join('products', 'products.id', '=', 'product_attributes.product_id')
+        ->join('order_details', 'order_details.product_attribute_id', '=', 'product_attributes.id')
+        ->orderBy('order_details.order_id', 'desc');
+
+        return $query->paginate($param);
+    }
+
+    public function getImageswithProduct($limit)
+    {
+        $query = $this->model;
+        $query = $query->join('products', 'product_attributes.product_id', '=', 'products.id')
+        ->join('images', 'product_attributes.id', '=', 'images.product_attributes_id');
+
+        return $query->paginate($limit);
+    }
 }

@@ -50,8 +50,12 @@ class LoginController extends Controller
         if ($user === false) {
             return redirect(route('login')) -> with(['fail' => __('Email or password is incorrect')]);
         }
+        if ($url) {
 
-        return redirect($url)->with('success', 'Data saved successfully!');
+            return redirect($url)->with('success', 'Data saved successfully!');
+        }
+
+        return redirect(route('home'));
     }
 
     /**

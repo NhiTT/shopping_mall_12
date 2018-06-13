@@ -93,3 +93,77 @@ Route::get('showPrdByCatId/{id}', ['as' => 'prdByCategory', 'uses' => 'Frontend\
  * COUPON
  */
 Route::get('checkCoupon', ['as' => 'checkCoupon', 'uses' => 'Frontend\CouponProgramController@check']);
+
+/**
+ * Search
+ */
+Route::get('search', ['as' => 'search', 'uses' => 'Frontend\ProductController@search']);
+
+/**
+ * ADMIN ROLE
+ */
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('admin', ['as' => 'admin', 'uses' => 'Backend\AdminController@index']);
+
+    // Product
+    Route::get('adminProducts', ['as' => 'admin.products', 'uses' => 'Backend\ProductController@index']);
+
+    Route::get('/editProduct/{id}', ['as' => 'admin.editProduct', 'uses' => 'Backend\ProductController@edit']);
+    Route::post('/edittingProduct/{id}', ['as' => 'admin.edittingProduct', 'uses' => 'Backend\ProductController@editting']);
+    Route::get('/addProduct', ['as' => 'admin.addProduct', 'uses' => 'Backend\ProductController@add']);
+    Route::post('/addingProduct', ['as' => 'admin.addingProduct', 'uses' => 'Backend\ProductController@adding']);
+
+
+    // end product
+
+    // Category
+    Route::get('/addCategory', ['as' => 'admin.addCategory', 'uses' => 'Backend\CategoryController@add']);
+    Route::post('/addingCategory', ['as' => 'admin.addingCategory', 'uses' => 'Backend\CategoryController@adding']);
+
+    Route::get('/editCategory/{id}', ['as' => 'admin.editCategory', 'uses' => 'Backend\CategoryController@edit']);
+    Route::post('/edittingCategory/{id}', ['as' => 'admin.edittingCategory', 'uses' => 'Backend\CategoryController@editting']);
+    Route::get('/deleteCategory/{id}', ['as' => 'admin.deleteCategory', 'uses' => 'Backend\CategoryController@delete']);
+    Route::get('/restoreCategory/{id}', ['as' => 'admin.restoreCategory', 'uses' => 'Backend\CategoryController@restore']);
+   Route::get('/showCategory/{id}', ['as' => 'admin.showCategory', 'uses' => 'Backend\CategoryController@show']);
+    // end Category
+
+    Route::get('adminUsers', ['as' => 'admin.users', 'uses' => 'Backend\UserController@index']);
+    Route::get('adminCategories', ['as' => 'admin.categories', 'uses' => 'Backend\CategoryController@index']);
+    Route::get('adminColors', ['as' => 'admin.colors', 'uses' => 'Backend\ColorController@index']);
+
+    Route::get('adminImages', ['as' => 'admin.images', 'uses' => 'Backend\ImageController@index']);
+    Route::get('searchAll', ['as' => 'admin.searchAll', 'uses' => 'Backend\ProductController@searchAll']);
+    Route::get('editProduct/{id}', ['as' => 'admin.editProduct', 'uses' => 'Backend\ProductController@edit']);
+
+    // COUPON
+    Route::get('adminCoupons', ['as' => 'admin.coupons', 'uses' => 'Backend\CouponController@index']);
+    Route::get('/addCoupon', ['as' => 'admin.addCoupon', 'uses' => 'Backend\CouponController@add']);
+    Route::post('/addingCoupon', ['as' => 'admin.addingCoupon', 'uses' => 'Backend\CouponController@adding']);
+
+    Route::get('/editCoupon/{id}', ['as' => 'admin.editCoupon', 'uses' => 'Backend\CouponController@edit']);
+    Route::post('/edittingCoupon/{id}', ['as' => 'admin.edittingCoupon','uses' => 'Backend\CouponController@editting']);
+
+    Route::get('/deleteCoupon/{id}', ['as' => 'admin.deleteCoupon', 'uses' => 'Backend\CouponController@delete']);
+    Route::get('/restoreCoupon/{id}', ['as' => 'admin.restoreCoupon', 'uses' => 'Backend\CouponController@restore']);
+
+    Route::get('/showCoupon/{id}', ['as' => 'admin.showCoupon', 'uses' => 'Backend\CouponController@show']);
+
+    //END COUPON
+
+    //ORDER
+
+    Route::get('adminOrders', ['as' => 'admin.orders', 'uses' => 'Backend\OrderController@index']);
+    Route::get('/addOrder', ['as' => 'admin.addOrder', 'uses' => 'Backend\OrderController@add']);
+    Route::post('/addingOrder', ['as' => 'admin.addingOrder', 'uses' => 'Backend\OrderController@adding']);
+
+    Route::get('/editOrder/{id}', ['as' => 'admin.editOrder', 'uses' => 'Backend\OrderController@edit']);
+    Route::post('/edittingOrder/{id}', ['as' => 'admin.edittingOrder','uses' => 'Backend\OrderController@editting']);
+
+    Route::get('/deleteOrder/{id}', ['as' => 'admin.deleteOrder', 'uses' => 'Backend\OrderController@delete']);
+    Route::get('/restoreOrder/{id}', ['as' => 'admin.restoreOrder', 'uses' => 'Backend\OrderController@restore']);
+
+    Route::get('/showOrder/{id}', ['as' => 'admin.showOrder', 'uses' => 'Backend\OrderController@show']);
+
+    //END ORDER
+});
+

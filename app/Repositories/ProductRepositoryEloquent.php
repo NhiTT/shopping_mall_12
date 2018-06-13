@@ -41,7 +41,12 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
     public function getProductByCategoryId($param, $id)
     {
         $query = $this->model;
-        $query = $query->where('category_id', '=', $id);
+        $query = $query->select('*', 'products.id as pid', 'products.name as pname', 'products.slug as pslug')
+        ->join('categories', 'categories.id', '=', 'products.category_id')
+        // ->where('categories.status', 1)
+        ->where('category_id', $id)
+        ->orwhere('parent_id', $id)
+        ->orderBy('products.created_at', 'desc');
 
         return $query->paginate($param);
     }

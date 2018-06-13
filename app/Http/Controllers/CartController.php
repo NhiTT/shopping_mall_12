@@ -32,7 +32,7 @@ class CartController extends Controller
         }
         $pas = $dataPA->getImagesAll(100);
 
-        return view('frontend.cart.showCart', compact('user', 'pas', 'coupons', 'user'));
+        return view('frontend.cart.showCart', compact('user', 'pas', 'coupons'));
     }
 
     /**

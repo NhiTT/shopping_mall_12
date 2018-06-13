@@ -22,7 +22,12 @@ class Category extends Model
 
     public function parent()
     {
-        return $this->belongsTo(self::class, 'parent_id');
+        $parent = self::find($this->parent_id);
+        if (!$parent) {
+            return;
+        }
+
+        return $parent->name;
     }
 
     public function children()

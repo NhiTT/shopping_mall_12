@@ -40,11 +40,11 @@ class CouponProgramRepositoryEloquent extends BaseRepository implements CouponPr
 
     public function getCoupon($limit)
     {
-        $limit = 100;
         $query = $this->model;
-        $query = $query->join('coupons', 'coupon.id', '=', 'coupon_programs.coupon_id')
+        $query = $query->select('*', 'coupons.id as cid', 'products.id as pid')
+        ->join('coupons', 'coupons.id', '=', 'coupon_programs.coupon_id')
         ->join('products', 'products.id', '=', 'coupon_programs.product_id')
-        ->orderBy('products.id', 'desc');
+        ->orderBy('coupons.created_at', 'desc');
 
         return $query->paginate($limit);
     }
@@ -53,9 +53,9 @@ class CouponProgramRepositoryEloquent extends BaseRepository implements CouponPr
     {
         $limit = 100;
         $query = $this->model;
-        $query = $query->join('coupons', 'coupon.id', '=', 'coupon_programs.coupon_id')
+        $query = $query->join('coupons', 'coupons.id', '=', 'coupon_programs.coupon_id')
         ->join('products', 'products.id', '=', 'coupon_programs.product_id')
-        ->where('coupon.code', '=', $code)
+        ->where('coupons.code', '=', $code)
         ->where('coupon_programs.product_id', '=', $p);
 
         return $query->paginate($limit);

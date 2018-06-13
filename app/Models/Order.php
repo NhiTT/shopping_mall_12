@@ -17,6 +17,7 @@ class Order extends Model
         'amount',
         'phone',
         'name',
+        'address',
         'zipcode',
         'status',
     ];
@@ -24,5 +25,15 @@ class Order extends Model
     public function paymentMethod()
     {
         return $this->hasOne('PaymentMethod');
+    }
+
+    public function genPayment()
+    {
+        $payment_method_id = self::find($this->payment_method_id);
+        if (!$payment_method_id) {
+            return;
+        }
+
+        return $payment_method_id->payment;
     }
 }
