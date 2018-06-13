@@ -181,6 +181,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        willvincent\Rateable\RateableServiceProvider::class,
     ],
 
     /*

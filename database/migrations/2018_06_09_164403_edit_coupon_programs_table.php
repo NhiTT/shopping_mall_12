@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EditRateTable extends Migration
+class EditCouponProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class EditRateTable extends Migration
      */
     public function up()
     {
-        Schema::table('rate', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('restrict')->onDelete('restrict');
+        Schema::table('coupon_programs', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onUpdate('restrict')->onDelete('restrict');
         });
     }
 
@@ -26,8 +26,6 @@ class EditRateTable extends Migration
      */
     public function down()
     {
-        Schema::table('rate', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

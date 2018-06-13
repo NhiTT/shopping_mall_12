@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->unsignedInteger('category_id');
             $table->string('barcode')->nullable();
-            $table->float('rate_point')->default(1);
+            $table->float('rate_point')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

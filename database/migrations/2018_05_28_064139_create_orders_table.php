@@ -20,7 +20,8 @@ class CreateOrdersTable extends Migration
             $table->float('amount');
             $table->string('phone');
             $table->string('name');
-            $table->string('zipcode');
+            $table->string('address');
+            $table->string('zipcode')->default(100000);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

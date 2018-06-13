@@ -56,13 +56,16 @@ Route::group(['middleware' => 'user'], function () {
 
     Route::get('orderDetail/{id}', ['as' => 'user.orderDetail', 'uses' => 'Frontend\OrderController@showById']);
     Route::get('cancelOrder/{id}', ['as' => 'user.cancelOrder', 'uses' => 'Frontend\OrderController@cancel']);
-});
 
-/**
- * ADMIN ROLE
- */
-Route::group(['middleware' => 'admin'], function () {
-    Route::get('admin', ['as' => 'admin', 'uses' => 'Backend\AdminController@index']);
+    Route::get('myReviews', ['as' => 'user.myReviews', 'uses' => 'CommentController@index']);
+    Route::get('singleReview/{id}', ['as' => 'user.singleReview', 'uses' => 'CommentController@show']);
+    Route::post('createReview', ['as' => 'user.createReview', 'uses' => 'CommentController@create']);
+    Route::post('updateReview', ['as' => 'user.updateReview', 'uses' => 'CommentController@updateReview']);
+    Route::post('delReview/{id}', ['as' => 'user.delReview', 'uses' => 'CommentController@delete']);
+    /**
+     * COMMENT - Question
+     */
+    Route::post('createQuestion', ['as' => 'user.createQuestion', 'uses' => 'CommentController@createQuestion']);
 });
 
 /**
@@ -93,3 +96,24 @@ Route::get('showPrdByCatId/{id}', ['as' => 'prdByCategory', 'uses' => 'Frontend\
  * COUPON
  */
 Route::get('checkCoupon', ['as' => 'checkCoupon', 'uses' => 'Frontend\CouponProgramController@check']);
+
+/**
+ * Search
+ */
+Route::get('search', ['as' => 'search', 'uses' => 'Frontend\ProductController@search']);
+
+/**
+ * ADMIN ROLE
+ */
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('admin', ['as' => 'admin', 'uses' => 'Backend\AdminController@index']);
+    Route::get('adminProducts', ['as' => 'admin.products', 'uses' => 'Backend\ProductController@index']);
+    Route::get('adminUsers', ['as' => 'admin.users', 'uses' => 'Backend\UserController@index']);
+    Route::get('adminCategories', ['as' => 'admin.categories', 'uses' => 'Backend\CategoryController@index']);
+    Route::get('adminColors', ['as' => 'admin.colors', 'uses' => 'Backend\ColorController@index']);
+    Route::get('adminCoupons', ['as' => 'admin.coupons', 'uses' => 'Backend\CouponController@index']);
+    Route::get('adminOrders', ['as' => 'admin.orders', 'uses' => 'Backend\OrderController@index']);
+    Route::get('adminImages', ['as' => 'admin.images', 'uses' => 'Backend\ImageController@index']);
+    Route::get('searchAll', ['as' => 'admin.searchAll', 'uses' => 'Backend\ProductController@searchAll']);
+    Route::get('editProduct/{id}', ['as' => 'admin.editProduct', 'uses' => 'Backend\ProductController@edit']);
+});

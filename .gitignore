@@ -11,6 +11,7 @@ yarn-error.log
 .env
 
 /app/Entities
-.framgia-ci-resuft.temp.yml
+/database/seeds/
+.framgia-ci-result.temp.yml
 .framgia-ci.yml
 .framgia-ci-reports
